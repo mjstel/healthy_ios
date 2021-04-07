@@ -27,14 +27,14 @@ enum HKCategoryType {
 }
 
 extension HKQuantityTypeX on HKQuantityType {
-  String identifier() =>
+  String get identifier =>
       'HKQuantityTypeIdentifier' + toString().split('.').last;
   HKQuantityTypeUnitTuple withUnit(String unit) =>
       HKQuantityTypeUnitTuple(this, unit);
 }
 
 extension HKCategoryTypeX on HKCategoryType {
-  String identifier() =>
+  String get identifier =>
       'HKCategoryTypeIdentifier' + toString().split('.').last;
 }
 
@@ -46,7 +46,7 @@ class HKQuantityTypeUnitTuple with EquatableMixin {
 
   Map<String, dynamic> toMap() {
     return {
-      'type': type.identifier(),
+      'type': type.identifier,
       'unit': unit,
     };
   }

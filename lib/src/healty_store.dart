@@ -53,7 +53,7 @@ class HealthStore {
         start: start,
         end: end,
         args: {
-          'type': type.identifier(),
+          'type': type.identifier,
         },
       );
       final records = fetchedSample.map(

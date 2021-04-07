@@ -21,11 +21,8 @@ class _MyAppState extends State<MyApp> {
   }
 
   void _fetchCategoricalSamples() async {
-    final types = [
-      HKCategoryType.SleepAnalysis,
-      HKCategoryType.MindfulSession
-    ];
-    final granted = await store.requestTypes(types.map((e) => e.identifier()));
+    final types = [HKCategoryType.SleepAnalysis, HKCategoryType.MindfulSession];
+    final granted = await store.requestTypes(types.map((e) => e.identifier));
 
     setState(() {
       isLoading = true;
@@ -53,7 +50,7 @@ class _MyAppState extends State<MyApp> {
 
   void _fetchQuantitySamples() async {
     final types = [HKQuantityType.StepCount, HKQuantityType.ActiveEnergyBurned]
-        .map((e) => e.identifier());
+        .map((e) => e.identifier);
     final granted = await store.requestTypes(types);
 
     setState(() {
@@ -87,7 +84,7 @@ class _MyAppState extends State<MyApp> {
 
   void _fetchStatisticalData() async {
     final types = [HKQuantityType.StepCount, HKQuantityType.HeartRate]
-        .map((e) => e.identifier());
+        .map((e) => e.identifier);
     final granted = await store.requestTypes(types);
 
     setState(() {
