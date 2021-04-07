@@ -22,8 +22,8 @@ class _MyAppState extends State<MyApp> {
 
   void _fetchCategoricalSamples() async {
     final types = [
-      HKCategoricalType.SleepAnalysis,
-      HKCategoricalType.MindfulSession
+      HKCategoryType.SleepAnalysis,
+      HKCategoryType.MindfulSession
     ];
     final granted = await store.requestTypes(types.map((e) => e.identifier()));
 

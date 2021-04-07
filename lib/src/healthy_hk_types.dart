@@ -21,7 +21,7 @@ enum HKQuantityType {
   DistanceWalkingRunning,
   DietaryWater,
 }
-enum HKCategoricalType {
+enum HKCategoryType {
   MindfulSession,
   SleepAnalysis,
 }
@@ -33,7 +33,7 @@ extension HKQuantityTypeX on HKQuantityType {
       HKQuantityTypeUnitTuple(this, unit);
 }
 
-extension HKCategoricalTypeX on HKCategoricalType {
+extension HKCategoryTypeX on HKCategoryType {
   String identifier() =>
       'HKCategoryTypeIdentifier' + toString().split('.').last;
 }

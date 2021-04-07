@@ -1,11 +1,11 @@
 import 'package:equatable/equatable.dart';
 import 'package:healthy_ios/src/healthy_hk_types.dart';
 
-class HKCategoricalSample with EquatableMixin {
-  HKCategoricalSample(this.type, this.from, this.to, this.value);
+class HKCategorySample with EquatableMixin {
+  HKCategorySample(this.type, this.from, this.to, this.value);
 
   final num value;
-  final HKCategoricalType type;
+  final HKCategoryType type;
   final DateTime from;
   final DateTime to;
 

@@ -41,12 +41,12 @@ class HealthStore {
     return result;
   }
 
-  Future<Iterable<HKCategoricalSample>> getHealthSamplesForCategroyType({
+  Future<Iterable<HKCategorySample>> getHealthSamplesForCategroyType({
     required DateTime start,
     required DateTime end,
-    required Iterable<HKCategoricalType> types,
+    required Iterable<HKCategoryType> types,
   }) async {
-    final result = <HKCategoricalSample>{};
+    final result = <HKCategorySample>{};
     for (final type in types) {
       final fetchedSample = await _query(
         'requestCategoricalData',
@@ -57,7 +57,7 @@ class HealthStore {
         },
       );
       final records = fetchedSample.map(
-        (sample) => HKCategoricalSample(
+        (sample) => HKCategorySample(
           type,
           DateTime.fromMillisecondsSinceEpoch(sample['from'] as int),
           DateTime.fromMillisecondsSinceEpoch(sample['to'] as int),
