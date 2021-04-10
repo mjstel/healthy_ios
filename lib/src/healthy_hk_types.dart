@@ -20,6 +20,9 @@ enum HKQuantityType {
   FlightsClimbed,
   DistanceWalkingRunning,
   DietaryWater,
+  HeartRateVariabilitySDNN,
+  EnvironmentalAudioExposure,
+  HeadphoneAudioExposure,
 }
 enum HKCategoryType {
   MindfulSession,
@@ -29,6 +32,7 @@ enum HKCategoryType {
 extension HKQuantityTypeX on HKQuantityType {
   String get identifier =>
       'HKQuantityTypeIdentifier' + toString().split('.').last;
+
   HKQuantityTypeUnitTuple withUnit(String unit) =>
       HKQuantityTypeUnitTuple(this, unit);
 }
