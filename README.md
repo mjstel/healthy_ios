@@ -1,25 +1,25 @@
 # healthy_ios
 
-A small wrapper for sample- and statisticsqueries against HealthKit that is inspired by [health library from CACHET](https://pub.dev/packages/health).
+A small wrapper for sample and statistics queries against HealthKit that is inspired by [health library from CACHET](https://pub.dev/packages/health).
 
 ## Usage
 
-1. add `healthy_ios` to your `pubspec.yaml`
+1. Add `healthy_ios` to your `pubspec.yaml`
 
 2. Add the following entries to your `plist.info`:
 
-```xml
+```
 <key>NSHealthShareUsageDescription</key>
 <string>Add a reason why you need this.</string>
 <key>NSHealthUpdateUsageDescription</key>
 <string>Add a reason why you need this.</string>
 ```
 
-3. Open your project and add "HealthKit" as an capability.
+3. Open your project in Xcode and add "HealthKit" as a capability.
 
 ### After the setup
 
-Now you can instanciate a HealthStore object:
+Now you can instantiate a HealthStore object:
 ```dart
 final store = HealthStore();
 ```
@@ -46,7 +46,7 @@ final samples = await store.getHealthSamplesForQuantityType(
 
 If you are querying for CategoryTypes, you don't pass a unit, therefore the value property of the result contains the enum value of the subtype.[[See SleepAnalysis for example]](https://developer.apple.com/documentation/healthkit/hkcategoryvaluesleepanalysis)
 
-Getting statistics data is also very easy. You need to additionally pass an intervall, which is used to accumulate the statistics and and achorDate, which is used to determine where to start an interval [[See here for more information](https://developer.apple.com/documentation/healthkit/hkstatisticscollectionquery/1615241-anchordate)]:
+Getting statistics data is also very easy. You need to additionally pass an interval, which is used to accumulate the statistics, and achorDate, which is used to determine where to start an interval. At the moment, the `StatisticsInterval` is only capable of handling day, hour, and minute intervals.
 ```dart
 final now = DateTime.now();
 final start = DateTime(now.year, now.month, now.day, 0, 0);
@@ -59,10 +59,9 @@ final samples = await store.getHealthStatisticsForType(
     HKQuantityType.StepCount.withUnit('count'),
   ]);
 ```
-The resulting statistics object has 4 value fields (sum, avg, min, max). If the HKQuantityType is cumulative, only sum will hold a value. If the type is dicrete avg, min, and max will hold a value. 
-
+The resulting statistics object has 4 value fields (sum, avg, min, max). If the HKQuantityType is cumulative, only the sum field will hold a value. If the type is discrete, avg, min, and max will hold a value.
 ### Aditional Information:
- * For valid units see [here](https://developer.apple.com/documentation/healthkit/hkunit)
+ * For valid units see [here](https://developer.apple.com/documentation/healthkit/samples/units_and_quantities/defining_and_converting_units_and_quantities)
 
 ## Supported Data Types
 Quantitative Types:
@@ -85,6 +84,9 @@ Quantitative Types:
  * FlightsClimbed
  * DistanceWalkingRunning
  * DietaryWater
+ * HeartRateVariabilitySDNN
+ * EnvironmentalAudioExposure
+ * HeadphoneAudioExposure
 
 Categorical Types: 
  * MindfulSession
