@@ -1,5 +1,6 @@
 import 'package:equatable/equatable.dart';
 
+/// An [Ecxeption], that is thrown, when an error appears in this plugin.
 class HealthyException with EquatableMixin implements Exception {
   const HealthyException(this.code, {this.message, this.details});
 

@@ -1,5 +1,6 @@
 import 'package:equatable/equatable.dart';
 
+/// All available HealthKit HKQuantityType types
 enum HKQuantityType {
   ActiveEnergyBurned,
   BasalEnergyBurned,
@@ -24,24 +25,15 @@ enum HKQuantityType {
   EnvironmentalAudioExposure,
   HeadphoneAudioExposure,
 }
+
+/// All available HealthKit HKCategoryType types
 enum HKCategoryType {
   MindfulSession,
   SleepAnalysis,
 }
 
-extension HKQuantityTypeX on HKQuantityType {
-  String get identifier =>
-      'HKQuantityTypeIdentifier' + toString().split('.').last;
-
-  HKQuantityTypeUnitTuple withUnit(String unit) =>
-      HKQuantityTypeUnitTuple(this, unit);
-}
-
-extension HKCategoryTypeX on HKCategoryType {
-  String get identifier =>
-      'HKCategoryTypeIdentifier' + toString().split('.').last;
-}
-
+/// A class to create a tuple of [HKQuantityType] and a [String] that matches
+/// a unit, which we want to measure the [type] in.
 class HKQuantityTypeUnitTuple with EquatableMixin {
   final HKQuantityType type;
   final String unit;
@@ -57,4 +49,19 @@ class HKQuantityTypeUnitTuple with EquatableMixin {
 
   @override
   List<Object?> get props => [type, unit];
+}
+
+/// Extensions for the [HKQuantityType]
+extension HKQuantityTypeX on HKQuantityType {
+  String get identifier =>
+      'HKQuantityTypeIdentifier' + toString().split('.').last;
+
+  HKQuantityTypeUnitTuple withUnit(String unit) =>
+      HKQuantityTypeUnitTuple(this, unit);
+}
+
+/// Extensions for the [HKCategoryType]
+extension HKCategoryTypeX on HKCategoryType {
+  String get identifier =>
+      'HKCategoryTypeIdentifier' + toString().split('.').last;
 }

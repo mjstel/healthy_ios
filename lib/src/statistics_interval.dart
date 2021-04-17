@@ -1,5 +1,8 @@
 import 'package:equatable/equatable.dart';
+import 'package:healthy_ios/healthy_ios.dart';
 
+/// A class to specifiy an interval for the getHealthStatisticsForType method
+/// on the [HealthStore]
 class StatisticsInterval extends Equatable {
   final int day;
   final int hour;
