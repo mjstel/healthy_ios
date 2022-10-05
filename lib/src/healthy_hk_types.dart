@@ -35,14 +35,14 @@ enum HKCategoryType {
 /// A class to create a tuple of [HKQuantityType] and a [String] that matches
 /// a unit, which we want to measure the [type] in.
 class HKQuantityTypeUnitTuple with EquatableMixin {
-  final HKQuantityType type;
+  final String type;
   final String unit;
 
   const HKQuantityTypeUnitTuple(this.type, this.unit);
 
   Map<String, dynamic> toMap() {
     return {
-      'type': type.identifier,
+      'type': type,
       'unit': unit,
     };
   }
@@ -57,7 +57,7 @@ extension HKQuantityTypeX on HKQuantityType {
       'HKQuantityTypeIdentifier' + toString().split('.').last;
 
   HKQuantityTypeUnitTuple withUnit(String unit) =>
-      HKQuantityTypeUnitTuple(this, unit);
+      HKQuantityTypeUnitTuple(identifier, unit);
 }
 
 /// Extensions for the [HKCategoryType]

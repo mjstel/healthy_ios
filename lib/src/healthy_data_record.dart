@@ -25,7 +25,7 @@ class HKQuantitySample with EquatableMixin {
   HKQuantitySample(this.type, this.unit, this.from, this.to, this.value);
 
   final num value;
-  final HKQuantityType type;
+  final String type;
   final String unit;
   final DateTime from;
   final DateTime to;
@@ -47,7 +47,7 @@ class HKStatistics with EquatableMixin {
   final num? avg;
   final num? min;
   final num? max;
-  final HKQuantityType type;
+  final String type;
   final String unit;
   final DateTime from;
   final DateTime to;
