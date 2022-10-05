@@ -64,7 +64,7 @@ class _MyAppState extends State<MyApp> {
             start: now.subtract(Duration(days: 2)),
             end: now,
             types: [
-              HKQuantityTypeUnitTuple(HKQuantityType.StepCount, 'count'),
+              HKQuantityTypeUnitTuple(HKQuantityType.StepCount.identifier, 'count'),
             ]);
 
         setState(() {

@@ -1,9 +1,5 @@
 import 'package:flutter/services.dart';
 import 'package:healthy_ios/healthy_ios.dart';
-import 'package:healthy_ios/src/healthy_hk_types.dart';
-
-import './healthy_data_record.dart';
-import 'statistics_interval.dart';
 
 /// A class that provides Methods to access HealthKit
 class HealthStore {
